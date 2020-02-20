@@ -64,14 +64,18 @@ class Zinja {
     const laiks = this.laiks ? this.laiks : '-';
     const LIclassName = "left clearfix";
     const newDivclassName = "chat-body clearfix";
+    const ButtonclassName = "btn del";
     let newLI = document.createElement("li");
     newLI.className = LIclassName;
     let newDiv = document.createElement("div"); 
     newDiv.className = newDivclassName;
     let teksts = `${this.vards}: ${this.zinja}, nosūtīts: ${laiks}`;
+    let newButton = document.createElement("button"); 
+    newButton.className = ButtonclassName;
     let newContent = document.createTextNode(teksts); 
     newLI.appendChild(newDiv); 
     newDiv.appendChild(newContent); 
+    newLI.appendChild(newButton); 
     return newLI;
   }
 }
