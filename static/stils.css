@@ -126,3 +126,21 @@ a:hover, a:active, a:focus {
   background: rgb(168, 168, 168);
   border: 1px solid  rgb(168, 168, 168);
 }
+
+.btn {
+  position: fixed;
+  right: 80px;
+  z-index: 999;
+  border: none;
+  background-color: inherit;
+  padding: 14px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top:-37px;
+  display: inline-block;
+  background: rgb(255, 126, 126);
+}
+
+.btn:hover {background: #eee;}
+
+.del {color: red;}
