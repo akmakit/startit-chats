@@ -19,13 +19,13 @@ def ielasit_chatu():
 def suutiit_zinju():
   dati = request.json
   chats.pieraksti_zinju(dati)
-  return jsonify({ "chats":chats.lasi() })
+  return jsonify(chats.lasi())
 
 @app.route('/garastavoklis/pierakstit_grarastavokli', methods=['POST'])
 def pierakstit_garastavokli():
   gStavoklis = request.json
   garastavoklis.pieraksti_garastavokli(gStavoklis)
-  return jsonify({ "mood" :garastavoklis.lasi_garastavokli() })
+  return jsonify(garastavoklis.lasi_garastavokli())
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support

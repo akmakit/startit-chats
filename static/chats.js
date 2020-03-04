@@ -155,7 +155,7 @@ class Chats {
     this.vaiSkanjaIeslegta() && this.atskanjoSkanju()
     fetch('/chats/suuti', parameters)
       .then(r => r.json())
-      .then(d => this.pievienotZinjas(d.chats))
+      .then(d => this.pievienotZinjas(d))
       .catch(e => console.error('Error:', e))
   }
 
@@ -172,7 +172,7 @@ class Chats {
 
     fetch('/garastavoklis/pierakstit_grarastavokli', parameters)
       .then(r => r.json())
-      .then(d => this.pievienotGarastavokljus(d.mood))
+      .then(d => this.pievienotGarastavokljus(d))
       .catch(e => console.error('Error:', e))
       
     return `${vards} nomainīja garastāvokli uz: ${garastavoklis}`
