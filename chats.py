@@ -1,14 +1,16 @@
 from flask import json, jsonify
 from datetime import datetime
 from  pupinas import convert_beens
+from os import path
 
 LOGFAILS = "chats.txt"
 
 def lasi():
     chata_rindas = []
-    with open(LOGFAILS, "r", encoding="utf-8") as f:
-        for rinda in f:
-            chata_rindas.append(json.loads(rinda))
+    if (path.exists(LOGFAILS)):
+        with open(LOGFAILS, "r", encoding="utf-8") as f:
+            for rinda in f:
+                chata_rindas.append(json.loads(rinda))
     return chata_rindas
 
 
