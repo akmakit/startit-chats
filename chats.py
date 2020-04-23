@@ -1,6 +1,6 @@
 from flask import json, jsonify
 from datetime import datetime
-from  pupinas import convert_beens
+from pupinas import convert_beens
 from os import path
 
 LOGFAILS = "chats.txt"

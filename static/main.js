@@ -28,5 +28,10 @@ onload = () => {
 
 	document.getElementById('skanjasPoga').addEventListener('click', () => {
 		chataKlase.skanaJaNe()
-	})	
+	})
+
+	document.getElementById('zinjasPoga').addEventListener('click', () => {
+		chataKlase.suutiZinju()
+	})
+	
 }

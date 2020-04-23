@@ -6,11 +6,14 @@ let pupinu = false
 let komandas = []
 let ieraksts = 0
 
+
+let skanjaIeslegta = false
+
 class Chats {
   constructor() {
     this.zinjas = []
     this.garastavokli = []
-  }
+  } 
 
   notiritZinjas = () => this.zinjas = []
   notiritGarastavoklus =() => this.garastavokli = []
@@ -24,7 +27,7 @@ class Chats {
   pievienotZinjas = (visasZinjas) => {
     this.notiritZinjas()
     visasZinjas.length == 0
-      ? this.pievienotZinju(this.tuksaZinja())
+      ? this.pievienotZinju(this.tuksaZinja(new Date().toLocaleDateString()))
       : visasZinjas.forEach(({ vards, zinja, laiks }) => this.pievienotZinju(new Zinja(vards, zinja, laiks)))
   }
 
@@ -34,11 +37,11 @@ class Chats {
     visiGarastavokli.forEach(garastavoklis => this.pievienotGarastavokli(garastavoklis))
   }
 
-  tuksaZinja = () => (
+  tuksaZinja = (laiksUnDatumsTagad) => (
     new Zinja(
       'Pārlūkprogramma',
       'Čatā pašlaik ziņu nav, uzrakstiet kaut ko!',
-      'Tue, 03 Mar 2020 22:38:10 GMT'
+      `${laiksUnDatumsTagad}`
     )
   )
 
@@ -47,7 +50,7 @@ class Chats {
     // novaacam ieprieksheejo saturu
     while (chatUL.firstChild) chatUL.firstChild.remove()
     // pievienojam visas zinjas
-    this.zinjas.forEach(zinja => chatUL.innerHTML += zinja.formateRindu(this.garastavokli))
+    this.zinjas.forEach((zinja, index) => chatUL.innerHTML += zinja.formateRindu(this.garastavokli))
     // noskrolleejam uz leju pie peedeejaa chata texta
     var chatScrollBox = chatUL.parentNode
     chatScrollBox.scrollTop = chatScrollBox.scrollHeight
@@ -66,9 +69,8 @@ class Chats {
   }
 
   skanaJaNe = () => {
-    let skanjasPoga = document.getElementById('skanjasPoga')
-    let skanjasPogasStatuss = skanjasPoga.value == 'up' ? 'off' : 'up'
-    skanjasPoga.value = skanjasPogasStatuss
+    skanjaIeslegta = !skanjaIeslegta
+    let skanjasPogasStatuss = skanjaIeslegta ? 'off' : 'up'
     document.getElementById('ikona').className = `fa fa-volume-${skanjasPogasStatuss}`
   }
 
@@ -153,6 +155,7 @@ class Chats {
     }
 
     this.vaiSkanjaIeslegta() && this.atskanjoSkanju()
+
     fetch('/chats/suuti', parameters)
       .then(r => r.json())
       .then(d => this.pievienotZinjas(d))
@@ -185,6 +188,6 @@ class Chats {
     this.pievienotGarastavokljus(mood)
     this.raadiChataRindas()
     await new Promise(resolve => setTimeout(resolve, ATJAUNOT))
-    await this.lasiChatu()
+    this.lasiChatu()
   }
 }
