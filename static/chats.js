@@ -8,6 +8,7 @@ let ieraksts = 0
 
 
 let skanjaIeslegta = false
+krasasMaina = (krasa) => document.body.className = krasa
 
 class Chats {
   constructor() {
