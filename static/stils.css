@@ -150,3 +150,75 @@ a:hover, a:active, a:focus {
   border: 1px solid rgb(248, 160, 160);
 }
 
+.dizaini {
+  position: relative;
+  display: inline-block;
+}
+
+.dizainpoga {
+  background-color: rgb(76, 80, 76);
+  color: white;
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+}
+
+.dizaini-saturs {
+  display: none;
+  position: relative;
+  background-color: #f1f5fc;
+  min-width: 225px;
+  z-index: 1;
+}
+.dizaini:hover .dizaini-saturs {
+  display: block;
+}
+
+.tumss {
+  background-color: rgb(32, 30, 30);
+  color: whitesmoke;
+}
+
+.tumss .chat li.left .chat-body {
+  background-color: rgb(56, 55, 55);
+  border: 1px rgb(56, 55, 55);
+}
+
+.tumss .chat li.left .chat-body:before {
+  background:rgb(56, 55, 55);
+  border: 1px rgb(56, 55, 55);
+}
+
+.zals {
+  background: linear-gradient(-46deg, #bdfa05, #0ea111, #32fa05);
+  color: #3F2842;
+}
+
+.zals .chat li.left .chat-body {
+  background-color: #AAE423;
+  border: 1px #AAE423;
+}
+
+.zals .chat li.left .chat-body:before {
+  background: #AAE423;
+  border: 1px #AAE423;
+}
+
+.violets {
+  background-color: #8D015C;
+  color: #CDF12C;
+}
+
+.violets .chat li.left .chat-body {
+  background-color: #40002A;
+  border: 1px  #40002A;
+}
+
+.violets .chat li.left .chat-body:before {
+  background: #40002A;
+  border: 1px  #40002A;
+}
+
+.violets .chat li.left.user .chat-body.user {
+  color: rgb(28, 83, 2);
+}
